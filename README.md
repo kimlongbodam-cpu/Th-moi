@@ -15,6 +15,29 @@ npm start
 
 Server mặc định chạy ở `http://localhost:3000`.
 
+## Deploy Fly.io
+
+App đã có `Dockerfile` và `fly.toml`. Trước khi deploy, đặt các secret thật trên Fly:
+
+```powershell
+fly secrets set META_VERIFY_TOKEN="token-ban-tu-dat"
+fly secrets set META_PAGE_ACCESS_TOKEN="page-access-token-that"
+fly secrets set META_APP_SECRET="app-secret-that"
+fly secrets set PUBLIC_BASE_URL="https://th-moi.fly.dev"
+```
+
+Deploy:
+
+```powershell
+fly deploy
+```
+
+Nếu app name `th-moi` đã bị người khác lấy, đổi dòng `app = "th-moi"` trong `fly.toml` sang tên app Fly của bạn, hoặc chạy:
+
+```powershell
+fly apps create ten-app-cua-ban
+```
+
 ## Cấu hình Meta Webhook
 
 Trong Meta Developers, cấu hình webhook cho Messenger:
