@@ -1,0 +1,14 @@
+{
+  "name": "facebook-invite-webhook",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node src/server.js",
+    "check": "node --check src/server.js && node --check src/config.js && node --check src/meta.js && node --check src/profile-store.js && node --check src/invite-template.js",
+    "test:render": "node scripts/render-smoke-test.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
